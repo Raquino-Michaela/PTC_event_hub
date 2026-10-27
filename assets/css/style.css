@@ -1,0 +1,57 @@
+body {
+    background-color: #090d16;
+    color: #f1f5f9;
+    font-family: 'Inter', sans-serif;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    overflow-x: hidden;
+}
+
+/* Glassmorphism Classes matching tailwind styles */
+.glass-panel {
+    background: rgba(15, 23, 42, 0.75);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+}
+
+.glass-card {
+    background: rgba(30, 41, 59, 0.6);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.glass-card:hover {
+    transform: translateY(-4px);
+    border-color: rgba(99, 102, 241, 0.4);
+    box-shadow: 0 12px 24px -10px rgba(99, 102, 241, 0.3);
+}
+
+.glow-text {
+    text-shadow: 0 0 12px rgba(99, 102, 241, 0.6);
+}
+
+/* Printable E-Ticket Styling */
+@media print {
+    body * {
+        visibility: hidden;
+    }
+    #printable-ticket-card, #printable-ticket-card * {
+        visibility: visible;
+    }
+    #printable-ticket-card {
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        background: #ffffff !important;
+        color: #000000 !important;
+        border: 2px dashed #000 !important;
+    }
+    .no-print {
+        display: none !important;
+    }
+}
